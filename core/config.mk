@@ -229,6 +229,9 @@ endif
 FIND_LEAVES_EXCLUDES := $(addprefix --prune=, $(SCAN_EXCLUDE_DIRS) .repo .git)
 
 -include vendor/extra/BoardConfigExtra.mk
+ifneq ($(ZEN_BUILD),)
+-include vendor/zen/configs/BoardConfigZEN.mk
+endif
 
 # The build system exposes several variables for where to find the kernel
 # headers:
@@ -1091,6 +1094,15 @@ ifeq ($(CALLED_FROM_SETUP),true)
 include $(BUILD_SYSTEM)/ninja_config.mk
 include $(BUILD_SYSTEM)/soong_config.mk
 endif
+
+ifneq ($(ZEN_BUILD),)
+## We need to be sure the global selinux policies are included
+## last, to avoid accidental resetting by device configs
+#$(eval include vendor/zen/sepolicy/common/sepolicy.mk)
+endif
+
+# Include any vendor specific config.mk file
+-include vendor/*/build/core/config.mk
 
 include $(BUILD_SYSTEM)/dumpvar.mk
 
