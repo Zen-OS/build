@@ -1086,3 +1086,9 @@ include $(BUILD_SYSTEM)/soong_config.mk
 endif
 
 include $(BUILD_SYSTEM)/dumpvar.mk
+
+# QCOM targets and pathmap
+ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
+include $(TOPDIR)vendor/zen/build/core/pathmap.mk
+include $(TOPDIR)vendor/zen/build/core/qcom_target.mk
+endif
