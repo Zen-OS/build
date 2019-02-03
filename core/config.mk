@@ -1098,7 +1098,7 @@ endif
 ifneq ($(ZEN_BUILD),)
 ## We need to be sure the global selinux policies are included
 ## last, to avoid accidental resetting by device configs
-#$(eval include vendor/zen/sepolicy/common/sepolicy.mk)
+$(eval include device/zen/sepolicy/common/sepolicy.mk)
 endif
 
 # Include any vendor specific config.mk file
