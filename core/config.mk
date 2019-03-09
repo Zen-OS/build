@@ -221,7 +221,7 @@ endif
 include $(BUILD_SYSTEM)/envsetup.mk
 
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
-include $(TOPDIR)vendor/zen/build/core/BoardConfigQcom.mk
+include $(TOPDIR)vendor/zen/configs/BoardConfigQcom.mk
 endif
 
 # Pruned directory options used when using findleaves.py
