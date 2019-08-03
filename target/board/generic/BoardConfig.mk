@@ -57,8 +57,7 @@ BUILD_QEMU_IMAGES := true
 USE_OPENGL_RENDERER := true
 
 TARGET_USERIMAGES_USE_EXT4 := true
-# Partition size is default 1.5GB (1536MB) for 64 bits projects
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1610612736
+
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 576716800
 TARGET_COPY_OUT_VENDOR := vendor
 # ~100 MB vendor image. Please adjust system image / vendor image sizes
